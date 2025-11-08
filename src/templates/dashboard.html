@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ThunderMail</title>
+    <link rel="stylesheet" href="../css/site.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ThunderMail</h1>
+                <span>Comunicação que impacta.</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>  
+                    <li class="active"><a href="../templates/dashboard.html"><span class="material-symbols-outlined">dashboard</span> Dashboard</a></li>
+                    <li><a href="../templates/contatos.html"><span class="material-symbols-outlined">group</span> Contatos</a></li>
+                    <li ><a href="../templates/campanhas.html"><span class="material-symbols-outlined">campaign</span> Campanhas</a></li>
+                    <li><a href="../templates/nova-campanha.html"><span class="material-symbols-outlined">add_circle</span> Nova Campanha</a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="login.html" class="logout-button">
+                    <span class="material-symbols-outlined">logout</span>
+                    sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+            <div class="header-title">
+                <h2>Dashboard</h2>
+                 <p>Gerencie seus envios</p>
+            </div>
+        </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="card-icon blue">
+                        <span class="material-symbols-outlined">campaign</span>
+                    </div>
+                    <div class="card-info">
+                        <span>Total de Campanhas</span>
+                        <strong>0</strong>
+                    </div>
+                    
+                </div>
+                <div class="stat-card">
+                    <div class="card-icon green">
+                         <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <div class="card-info">
+                        <span>Total de Contatos</span>
+                        <strong>0</strong>
+                    </div>
+                     
+                </div>
+                <div class="stat-card">
+                    <div class="card-icon orange">
+                        <span class="material-symbols-outlined">send</span>
+                    </div>
+                    <div class="card-info">
+                        <span>Campanhas Enviadas</span>
+                        <strong>0</strong>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="card-icon pink">
+                        <span class="material-symbols-outlined">percent</span>
+                    </div>
+                    <div class="card-info">
+                        <span>Taxa de Sucesso</span>
+                        <strong>0%</strong>
+                    </div>
+                     
+                </div>
+            </section>
+
+            <section class="content-row">
+                <div class="recent-campaigns">
+                    <h3>Campanhas Recentes</h3>
+                    <div class="campaign-list">
+                        <p class="empty-state">Nenhuma campanha recente para exibir.</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Ações Rápidas</h3>
+                    <div class="action-list">
+                        <a href="nova-campanha.html" class="action-item">
+                            <div class="action-icon blue">
+                                <span class="material-symbols-outlined">add_circle</span>
+                            </div>
+                            <div class="action-text">
+                                <h4>Nova Campanha</h4>
+                                <p>Criar e enviar arquivos</p>
+                            </div>
+                        </a>
+                        <a href="contatos.html" class="action-item">
+                            <div class="action-icon green">
+                                <span class="material-symbols-outlined">person_add</span>
+                            </div>
+                            <div class="action-text">
+                                <h4>Adicionar Contatos</h4>
+                                <p>Importar destinatários</p>
+                            </div>
+                        </a>
+                        <a href="campanhas.html" class="action-item">
+                            <div class="action-icon orange">
+                                <span class="material-symbols-outlined">visibility</span>
+                            </div>
+                            <div class="action-text">
+                                <h4>Ver Campanhas</h4>
+                                <p>Histórico completo</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

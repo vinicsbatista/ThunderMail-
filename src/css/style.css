@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alan Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-color: #007bff;
+    --primary-active: #0056b3;
+    --body-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #6c757d;
+    --border-color: #e9ecef;
+    --green: #28a745;
+    --border-radius-main: 12px;
+    --box-shadow-main: 7px 7px 12px rgba(5, 5, 5, 0.08);
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    padding-top: 74px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVEGAÇÃO FIXA */
+.nav-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 18px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 24px;
+}
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+.nav-links a:hover:not(.btn) {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+}
+
+/* BOTÕES GLOBAIS */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #333, #555, #333);
+    background-size: 200% auto;
+    color: #FFFFFF !important;
+    border-color: transparent;
+    transition: background-position 0.5s ease-in-out;
+}
+.btn-primary:hover {
+    background-position: 100% 0;
+    color: #FFFFFF !important;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--text-primary);
+}
+.btn-secondary:hover {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.btn-gradient {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    color: white;
+    background: linear-gradient(90deg, #28a745, #3be983, #28a745);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease-in-out;
+}
+
+.btn-gradient:hover { 
+    background-position: 100% 0; 
+}
+
+.btn-gradient-dark {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    color: white;
+    background: linear-gradient(90deg, #333, #777, #333);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease-in-out;
+}
+.btn-gradient-dark:hover { background-position: 100% 0; }
+
+/* SEÇÕES (HERO, FEATURES, DEVS) */
+.hero, .features, .plans, .devs {
+    padding: 80px 0;
+}
+
+.hero-content, .feature-content, .plans-container, .devs-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content, .feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+/* --- ESTILOS PARA O VÍDEO --- */
+.hero-image-placeholder {
+    height: 350px;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--text-primary);
+}
+.hero-image-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- SEÇÃO DE RECURSOS --- */
+.features { background-color: var(--card-bg); }
+
+.feature-image-placeholder {
+    height: 350px;
+    background-color: var(--body-bg);
+    box-shadow: var(--box-shadow-main);
+    border-radius: var(--border-radius-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--text-secondary);
+    overflow: hidden;
+}
+
+/* --- IMAGEM DO LAPTOP --- */
+.feature-image-placeholder img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.feature-image-placeholder img:hover {
+    transform: scale(1.15);
+}
+
+.feature-text h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.feature-text p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* --- SEÇÃO DE PLANOS (CARROSSEL) --- */
+.plans {
+    background-color: var(--body-bg);
+}
+
+.plans-container {
+    text-align: center;
+}
+.plans-container h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.plans-container p {
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-wrapper { position: relative; }
+
+.plans-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px;
+    gap: 32px;
+    overflow-x: auto;
+    padding: 20px;
+    margin: 0 -20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.plans-carousel::-webkit-scrollbar { display: none; }
+
+.plan-card {
+    scroll-snap-align: start;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--box-shadow-main);
+    padding: 32px;
+    text-align: left;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.plan-card--popular { border-color: var(--primary-color); }
+
+.plan-card--popular::before {
+    content: "Mais Popular";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.plan-card h2 { font-size: 20px; font-weight: 600; }
+.plan-price { font-size: 24px; color: var(--text-secondary); margin: 16px 0; }
+.plan-price strong { font-size: 48px; font-weight: 700; color: var(--text-primary); }
+.plan-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+
+.plan-benefits { list-style: none; margin-bottom: 32px; padding: 0; }
+.plan-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.plan-benefits .material-symbols-outlined { color: var(--green); font-size: 20px; }
+
+.plan-card .btn, .plan-card .btn-gradient-dark, .plan-card .btn-gradient {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.carousel-arrow:hover {
+    background-color: var(--text-primary);
+    color: white;
+}
+.carousel-arrow.left { left: -22px; }
+.carousel-arrow.right { right: -22px; }
+
+/* --- SEÇÃO EQUIPE --- */
+.devs { text-align: center; }
+
+.devs h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.devs p {
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+}
+
+.dev-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.dev-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 2px solid var(--border-color);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--text-secondary);
+    object-fit: cover;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.dev-photo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    border-color: #333;
+}
+
+.dev-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--text-primary);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 24px 0;
+    font-size: 14px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero-content, .feature-content { grid-template-columns: 1fr; text-align: center; }
+    .feature-content { grid-auto-flow: dense; }
+    .feature-image-placeholder { grid-row: 1; height: 280px; }
+    .feature-image-placeholder img { width: 85%; }
+    .hero-text h1, .feature-text h2, .plans-container h2, .devs h2 { font-size: 36px; }
+    .carousel-arrow { display: none; }
+}
+
+@media (max-width: 600px) {
+    .feature-image-placeholder { height: 220px; }
+    .feature-image-placeholder img { width: 90%; }
+}
+
+@media (max-width: 768px) {
+    .dev-grid { gap: 48px; }
+}
+
+@media (max-width: 480px) {
+    .dev-grid { gap: 32px; }
+    .plans-carousel { grid-auto-columns: 85%; }
+}

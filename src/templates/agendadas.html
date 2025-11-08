@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanhas Agendadas - ThunderMail</title>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+             <div class="sidebar-header">
+                <h1>ThunderMail</h1>
+                <span>Comunicação que impacta</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../templates/dashboard.html"><span class="material-symbols-outlined">dashboard</span> Dashboard</a></li>
+                    <li><a href="../templates/contatos.html"><span class="material-symbols-outlined">group</span> Contatos</a></li>
+                    <li class="active"><a href="../templates/campanhas.html"><span class="material-symbols-outlined">campaign</span> Campanhas</a></li>
+                    <li><a href="../templates/nova-campanha.html"><span class="material-symbols-outlined">add_circle</span> Nova Campanha</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="login.html" class="logout-button">
+                    <span class="material-symbols-outlined">logout</span>
+                    sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h2>Campanhas</h2>
+                    <p>Histórico completo de envios</p>
+                </div>
+            </header>
+
+            <div class="campaign-toolbar">
+                <div class="search-bar">
+                     <span class="material-symbols-outlined">search</span>
+                     <input type="text" placeholder="Buscar campanhas...">
+                </div>
+                <nav class="campaign-filters">
+                    <ul>
+                        <li><a href="campanhas.html">Todas</a></li>
+                        <li><a href="enviadas.html">Enviadas</a></li>
+                        <li class="active"><a href="agendadas.html">Agendadas</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section class="campaign-grid">
+                <div class="campaign-card">
+                    <div class="card-header">
+                        <h3>Campanha Agendada 1</h3>
+                        <span class="status-badge status-badge--scheduled">Agendada</span>
+                    </div>
+                    <p class="card-description">Descrição da campanha agendada</p>
+                    <div class="campaign-stats">
+                        <div class="stat-item"><span class="material-symbols-outlined">group</span> 0 destinatários</div>
+                        <div class="stat-item"><span class="material-symbols-outlined">attach_file</span> 0 arquivos</div>
+                        <div class="stat-item"><span class="material-symbols-outlined">pending_actions</span> Agendada para:</div>
+                        <div class="stat-item"><strong>--/--/----</strong></div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-gradient-small">Ver Detalhes</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

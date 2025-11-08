@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos - ThunderMail</title>
+    <link rel="stylesheet" href="../css/site.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ThunderMail</h1>
+                <span>Comunicação que impacta</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../templates/dashboard.html"><span class="material-symbols-outlined">dashboard</span> Dashboard</a></li>
+                    <li class="active"><a href="../templates/contatos.html"><span class="material-symbols-outlined">group</span> Contatos</a></li>
+                    <li><a href="../templates/campanhas.html"><span class="material-symbols-outlined">campaign</span> Campanhas</a></li>
+                    <li><a href="../templates/nova-campanha.html"><span class="material-symbols-outlined">add_circle</span> Nova Campanha</a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="login.html" class="logout-button">
+                    <span class="material-symbols-outlined">logout</span>
+                    sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h2>Contatos</h2>
+                    <p>Gerencie sua lista de destinatários</p>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="btn btn-secondary">
+                        <span class="material-symbols-outlined">download</span>
+                        Exportar
+                    </a>
+                    </div>
+            </header>
+
+            <section class="form-card">
+                <h3>Adicionar Novo Contato</h3>
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" placeholder="Nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="email@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa *</label>
+                            <input type="text" id="empresa" placeholder="Nome da empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="tags">Tags</label>
+                            <div class="input-with-button">
+                                <input type="text" id="tags" placeholder="Adicionar tag">
+                                <button type="button" class="add-tag-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-gradient">
+                        <span class="material-symbols-outlined">add</span>
+                        Adicionar Contato
+                    </button>
+                </form>
+            </section>
+            
+            <section class="contact-list-card">
+                <div class="search-bar">
+                     <span class="material-symbols-outlined">search</span>
+                     <input type="text" placeholder="Buscar contatos...">
+                </div>
+                
+                <table class="contact-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Empresa</th>
+                            <th>Tags</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="empty-table-message">Nenhum contato para exibir.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

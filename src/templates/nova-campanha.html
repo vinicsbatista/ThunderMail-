@@ -1,16 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Nova Campanha - ThunderMail</title>
     <link rel="stylesheet" href="../css/site.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style>
+        /*  Layout do Editor e Painel  */
+        .editor-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .editor-toolbar .tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 10px;
+            border-radius: var(--border-radius-small);
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: #333;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.25s ease;
+        }
+
+        .editor-toolbar .tool-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .editor-toolbar .tool-btn.active {
+            background: #333;
+            color: #fff;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.2) inset;
+        }
+
+        .wysiwyg {
+            min-height: 340px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-small);
+            padding: 12px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+
+        /* Botões de Template (alinhados à direita) */
+        .template-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .template-buttons .btn {
+            padding: 10px 16px;
+            border-radius: var(--border-radius-small);
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .template-buttons .btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Painel de destinatários */
+        .recipients-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .recipients-panel .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .recipients-panel button {
+            padding: 12px;
+            border-radius: var(--border-radius-small);
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .recipients-panel button:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .recipients-panel .send-now {
+        background: linear-gradient(90deg, #28a745, #3be983, #28a745);
+        background-size: 200% auto;
+        color: #fff;
+        border: none;
+        transition: background-position 0.3s ease-in-out;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: var(--border-radius-small);
+        }
+
+        .recipients-panel .send-now:hover {
+        background-position: 100% 0;
+        }
+
+        .recipients-panel textarea {
+            width: 100%;
+            min-height: 220px;
+            resize: vertical;
+            padding: 12px;
+            border-radius: var(--border-radius-small);
+            border: 1px solid var(--border-color);
+            font-family: inherit;
+        }
+
+        @media (max-width: 900px) {
+            .new-campaign-top-section { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <aside class="sidebar">
@@ -46,57 +173,138 @@
             </header>
 
             <section class="new-campaign-top-section">
-                <div class="form-card">
-                    <h3>Detalhes da Campanha</h3>
-                    <form class="details-form">
-                        <div class="form-group">
-                            <label for="campaign-name">Nome da Campanha *</label>
-                            <input type="text" id="campaign-name" placeholder="Ex: Envio de Contratos " required>
-                        </div>
-                        <div class="form-group">
-                            <label for="campaign-subject">Assunto do Email *</label>
-                            <input type="text" id="campaign-subject" placeholder="Ex: Documentos anexados" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="campaign-message">Mensagem *</label>
-                            <textarea id="campaign-message" rows="5" placeholder="Digite a mensagem que será enviada junto com os arquivos..." required></textarea>
-                        </div>
-                    </form>
+                <div>
+                    <div class="form-card">
+                        <h3>Detalhes da Campanha:</h3>
+                        <form class="details-form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="campaign-name">Nome da Campanha:</label>
+                                <input type="text" id="campaign-name" placeholder="Nome da Campanha" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="campaign-subject">Assunto da Campanha:</label>
+                                <input type="text" id="campaign-subject" placeholder="Assunto do Email" required>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="editor">Corpo do E-mail:</label>
+
+                                <!-- Botões de Template alinhados à direita -->
+                                <div class="template-buttons">
+                                    <button type="button" class="btn btn-secondary" id="use-template">Usar Template</button>
+                                    <button type="button" class="btn btn-secondary" id="create-template">Criar Template</button>
+                                </div>
+
+                                <!-- Toolbar do editor -->
+                                <div class="editor-toolbar" role="toolbar" aria-label="Editor de texto">
+                                    <button type="button" class="tool-btn" data-cmd="bold" title="Negrito"><span class="material-symbols-outlined">format_bold</span></button>
+                                    <button type="button" class="tool-btn" data-cmd="italic" title="Itálico"><span class="material-symbols-outlined">format_italic</span></button>
+                                    <button type="button" class="tool-btn" data-cmd="underline" title="Sublinhar"><span class="material-symbols-outlined">format_underlined</span></button>
+
+                                    <button type="button" class="tool-btn" data-cmd="insertUnorderedList" title="Lista"><span class="material-symbols-outlined">format_list_bulleted</span></button>
+                                    <button type="button" class="tool-btn" data-cmd="insertOrderedList" title="Lista Numerada"><span class="material-symbols-outlined">format_list_numbered</span></button>
+
+                                    <button type="button" class="tool-btn" data-cmd="justifyLeft" title="Alinhar à Esquerda"><span class="material-symbols-outlined">format_align_left</span></button>
+                                    <button type="button" class="tool-btn" data-cmd="justifyCenter" title="Centralizar"><span class="material-symbols-outlined">format_align_center</span></button>
+                                    <button type="button" class="tool-btn" data-cmd="justifyRight" title="Alinhar à Direita"><span class="material-symbols-outlined">format_align_right</span></button>
+
+                                    <button type="button" class="tool-btn" id="insert-link" title="Inserir Link"><span class="material-symbols-outlined">link</span></button>
+                                    <button type="button" class="tool-btn" id="insert-image-btn" title="Inserir Imagem"><span class="material-symbols-outlined">image</span></button>
+
+                                    <input id="editor-image-input" type="file" accept="image/*" style="display:none" />
+                                </div>
+
+                                <div id="editor" class="wysiwyg" contenteditable="true" aria-label="Editor de email"></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="upload-card">
-                    <h3>Arquivos para Enviar</h3>
-                    <div class="drop-zone">
-                        <span class="material-symbols-outlined">upload</span>
-                        <p>Arraste arquivos aqui</p>
-                        <span>ou</span>
-                        <button type="button" class="btn btn-secondary">Selecionar Arquivos</button>
+                <!-- Painel de destinatários -->
+                <aside class="recipients-card recipients-panel">
+                    <h3>Destinatários:</h3>
+                    <div class="actions">
+                        <button type="button" id="select-group-btn">Selecionar Grupo Criado</button>
+                        <button type="button" id="import-csv-right-btn">Importar arquivo</button>
+                        <input id="right-file-input" type="file" accept=".csv,image/*" style="display:none" />
+                        <small style="color:var(--text-secondary); font-size:13px;">Atenção: inserir 1 (um) e-mail por linha.</small>
+                        <textarea id="recipients-textarea" placeholder="Insira emails aqui"></textarea>
+                        <button type="button" id="save-draft">SALVAR COMO RASCUNHO</button>
+                        <button type="button" id="schedule-send">AGENDAR ENVIO</button>
+                        <button type="button" class="send-now" id="send-now">ENVIAR AGORA</button>
+                        <div style="font-size:13px; color:var(--text-secondary); margin-top:8px;">
+                            <strong id="recipients-count">0</strong> destinatários
+                        </div>
                     </div>
-                </div>
-            </section>
-
-            <section class="recipients-card">
-                <div class="recipients-header">
-                    <h3>Destinatários</h3>
-                    <div class="selection-count">0 selecionados</div>
-                </div>
-                <div class="recipients-toolbar">
-                    <div class="search-bar">
-                        <span class="material-symbols-outlined">search</span>
-                        <input type="text" placeholder="Buscar contatos...">
-                    </div>
-                    <div class="selection-actions">
-                        <a href="#">Selecionar todos</a>
-                        <a href="#">Limpar seleção</a>
-                    </div>
-                </div>
-                <ul class="recipient-list">
-                    <li class="empty-list-message">
-                        Busque por contatos para adicioná-los à campanha.
-                    </li>
-                </ul>
+                </aside>
             </section>
         </main>
     </div>
+
+    <script>
+        const toolbarButtons = document.querySelectorAll('.tool-btn[data-cmd]');
+        const editor = document.getElementById('editor');
+
+        // Atualiza estado ativo dos botões do editor
+        toolbarButtons.forEach(btn => {
+            const cmd = btn.getAttribute('data-cmd');
+            btn.addEventListener('click', () => {
+                document.execCommand(cmd, false, null);
+                editor.focus();
+                updateToolbarState();
+            });
+        });
+
+        function updateToolbarState() {
+            toolbarButtons.forEach(btn => {
+                const cmd = btn.getAttribute('data-cmd');
+                try {
+                    const isActive = document.queryCommandState(cmd);
+                    btn.classList.toggle('active', isActive);
+                } catch(e) {}
+            });
+        }
+
+        editor.addEventListener('keyup', updateToolbarState);
+        editor.addEventListener('mouseup', updateToolbarState);
+
+        // Inserir link
+        document.getElementById('insert-link').addEventListener('click', () => {
+            const url = prompt('Insira a URL (ex: https://exemplo.com):', 'https://');
+            if (url) document.execCommand('createLink', false, url);
+            updateToolbarState();
+        });
+
+        // Inserir imagem
+        const editorImageInput = document.getElementById('editor-image-input');
+        document.getElementById('insert-image-btn').addEventListener('click', () => editorImageInput.click());
+
+        editorImageInput.addEventListener('change', async e => {
+            const file = e.target.files[0];
+            if (!file || !file.type.startsWith('image/')) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                document.execCommand('insertHTML', false, `<img src="${reader.result}" style="max-width:100%;height:auto;" />`);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Botões de Template (simulação)
+        document.getElementById('use-template').onclick = () => {
+            editor.innerHTML = "<h2>Olá!</h2><p>Mensagem padrão de exemplo.</p>";
+        };
+        document.getElementById('create-template').onclick = () => {
+            const nome = prompt("Nome do novo template:", "Novo Template");
+            if (nome) alert(`Template "${nome}" criado! (simulação)`);
+        };
+
+        // Contador de destinatários
+        const recipientsTextarea = document.getElementById('recipients-textarea');
+        const recipientsCount = document.getElementById('recipients-count');
+        recipientsTextarea.addEventListener('input', () => {
+            recipientsCount.textContent = recipientsTextarea.value.split(/\r?\n/).filter(l => l.trim()).length;
+        });
+    </script>
 </body>
 </html>

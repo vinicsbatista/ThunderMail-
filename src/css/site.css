@@ -6,7 +6,7 @@
 }
 
 :root {
-    /* Cores Base */
+    /* --- Cores Base --- */
     --primary-color: #333;
     --primary-active: #0069d9;
     --body-bg: #f8f9fa; 
@@ -15,7 +15,7 @@
     --text-secondary: #6c757d;
     --border-color: #e9ecef;
 
-    /* Cores dos Simbolos */
+    /* --- Cores dos Simbolos --- */
     --green: #28a745;
     --blue: #0d6efd;
     --orange: #fd7e14;
@@ -42,7 +42,7 @@ a {
     color: inherit;
 }
 
-/* Estrutura Principal */
+/* --- Estrutura Principal --- */
 .container {
     display: flex;
     min-height: 100vh;
@@ -63,7 +63,7 @@ a {
     overflow-y: auto;
 }
 
-/* SIDEBAR */
+/* --- SIDEBAR --- */
 .sidebar-header {
     margin-bottom: 40px;
 }
@@ -118,7 +118,7 @@ a {
     margin-top: auto;
 }
 
-/* Estilo do Sair */
+/* --- Estilo do Sair --- */
 .logout-button {
     display: flex;
     align-items: center;
@@ -142,7 +142,7 @@ a {
     font-size: 20px;
 }
 
-/* Conteudo Principal do Site */
+/* --- Conteudo Principal do Site --- */
 .main-header {
     margin-bottom: 32px;
 }
@@ -233,7 +233,7 @@ a {
     border-radius: var(--border-radius-small);
 }
 
-/* Seção Inferior */
+/* --- Seção Inferior --- */
 .content-row {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -259,7 +259,7 @@ h3 {
     padding: 40px 0;
 }
 
-/* Ações Rapidas */
+/* --- Ações Rapidas --- */
 .action-list {
     display: flex;
     flex-direction: column;
@@ -305,7 +305,7 @@ h3 {
     color: var(--text-secondary);
 }
 
-/* Responsividade */
+/* --- Responsividade --- */
 @media (max-width: 1200px) {
     .content-row {
         grid-template-columns: 1fr;
@@ -330,7 +330,7 @@ h3 {
 
 } 
 
-/* CABEÇALHO DA PÁGINA */
+/* --- CABEÇALHO DA PÁGINA  --- */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -342,7 +342,7 @@ h3 {
     gap: 12px;
 }
 
-/* BOTÕES */
+/* --- BOTÕES --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -381,7 +381,7 @@ h3 {
     border-color: #00c6ff;              
 }
 
-/* CARD DE FORMULÁRIO */
+/* --- CARD DE FORMULÁRIO --- */
 .form-card {
     background-color: var(--card-bg);
     padding: 24px;
@@ -428,7 +428,7 @@ h3 {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* VALIDAÇÃO DE CAMPO OBRIGATÓRIO (BORDA VERMELHA) */
+/* --- VALIDAÇÃO DE CAMPO OBRIGATÓRIO (BORDA VERMELHA) --- */
 .form-group input:required:invalid {
     border-color: #dc3545;
 }
@@ -437,7 +437,7 @@ h3 {
 }
 
 
-/* CAMPO DE TAGS COM BOTÃO */
+/* --- CAMPO DE TAGS COM BOTÃO --- */
 .input-with-button {
     display: flex;
     align-items: center;
@@ -461,7 +461,7 @@ h3 {
     line-height: 1;
 }
 
-/* BOTÃO COM GRADIENTE */
+/* --- BOTÃO COM GRADIENTE --- */
 .btn-gradient {
     width: 100%;
     border: none;
@@ -478,7 +478,7 @@ h3 {
     background-position: 100% 0;
 }
 
-/* CARD DA LISTA DE CONTATOS */
+/* --- CARD DA LISTA DE CONTATOS --- */
 .contact-list-card {
     background-color: var(--card-bg);
     padding: 24px;
@@ -506,7 +506,7 @@ h3 {
     border-radius: var(--border-radius-small);
 }
 
-/* TABELA DE CONTATOS */
+/* --- TABELA DE CONTATOS --- */
 .contact-table {
     width: 100%;
     border-collapse: collapse;
@@ -524,7 +524,7 @@ h3 {
     font-weight: 500;
 }
 
-/* BADGES DE STATUS E TAGS */
+/* --- BADGES DE STATUS E TAGS --- */
 .status-badge, .tag-badge {
     padding: 4px 10px;
     border-radius: 12px;
@@ -543,14 +543,14 @@ h3 {
     margin-right: 6px;
 }
 
-/* MENSAGEM PARA TABELA VAZIA */
+/* --- MENSAGEM PARA TABELA VAZIA --- */
 .empty-table-message {
     text-align: center;
     padding: 40px;
     color: var(--text-secondary);
 }
 
-/* BARRA DE FERRAMENTAS (PESQUISA + FILTROS) */
+/* --- BARRA DE FERRAMENTAS (PESQUISA + FILTROS) --- */
 .campaign-toolbar {
     display: flex;
     justify-content: space-between;
@@ -584,7 +584,7 @@ h3 {
     color: white;
 }
 
-/* GRID DOS CARDS DE CAMPANHA */
+/* --- GRID DOS CARDS DE CAMPANHA --- */
 .campaign-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -619,7 +619,7 @@ h3 {
     margin: -8px 0; 
 }
 
-/* ESTATÍSTICAS DENTRO DO CARD */
+/* --- ESTATÍSTICAS DENTRO DO CARD --- */
 .campaign-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -643,7 +643,7 @@ h3 {
     font-weight: 600;
 }
 
-/* RODAPÉ DO CARD */
+/* --- RODAPÉ DO CARD --- */
 .campaign-card .card-footer {
     display: flex;
     justify-content: space-between;
@@ -658,7 +658,7 @@ h3 {
     color: var(--text-secondary);
 }
 
-/* NOVOS ESTILOS PARA BADGES DE STATUS */
+/* --- NOVOS ESTILOS PARA BADGES DE STATUS --- */
 .status-badge--sent {
     background-color: var(--green-light);
     color: var(--green);
@@ -683,7 +683,7 @@ h3 {
     color: var(--orange);
 }
 
-/* CABEÇALHO COM NAVEGAÇÃO DE VOLTAR */
+/* --- CABEÇALHO COM NAVEGAÇÃO DE VOLTAR --- */
 .page-header-nav {
     display: flex;
     align-items: center;
@@ -703,7 +703,7 @@ h3 {
 }
 
 
-/* SEÇÃO SUPERIOR (FORMULÁRIO + UPLOAD) */
+/* --- SEÇÃO SUPERIOR (FORMULÁRIO + UPLOAD) --- */
 .new-campaign-top-section {
     display: grid;
     grid-template-columns: 2fr 1fr; 
@@ -740,7 +740,7 @@ h3 {
 }
 
 
-/* CARD DE UPLOAD */
+/* --- CARD DE UPLOAD --- */
 .upload-card {
     background-color: var(--card-bg);
     padding: 24px;
@@ -776,7 +776,7 @@ h3 {
 }
 
 
-/* CARD DE DESTINATÁRIOS */
+/* --- CARD DE DESTINATÁRIOS --- */
 .recipients-card {
     background-color: var(--card-bg);
     padding: 24px;
@@ -823,7 +823,7 @@ h3 {
     text-decoration: underline;
 }
 
-/* LISTA DE CONTATOS PARA SELEÇÃO */
+/* --- LISTA DE CONTATOS PARA SELEÇÃO --- */
 .recipient-list {
     list-style: none;
     max-height: 250px; 
@@ -867,7 +867,7 @@ h3 {
     color: var(--text-secondary);
 }
 
-/* EFEITO HOVER VERDE PARA ÁREA DE UPLOAD */
+/* --- EFEITO HOVER VERDE PARA ÁREA DE UPLOAD --- */
 .drop-zone {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -886,7 +886,7 @@ h3 {
     color: var(--green); 
 }
 
-/* MENSAGEM PARA LISTA DE DESTINATÁRIOS VAZIA */
+/* --- MENSAGEM PARA LISTA DE DESTINATÁRIOS VAZIA --- */
 .recipient-list .empty-list-message {
     display: flex;
     justify-content: center;

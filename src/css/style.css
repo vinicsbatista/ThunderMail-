@@ -33,7 +33,7 @@ a {
     color: inherit;
 }
 
-/* NAVEGAÇÃO FIXA */
+/* --- NAVEGAÇÃO FIXA --- */
 .nav-header {
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
@@ -88,7 +88,7 @@ a {
     border-bottom-color: var(--text-primary);
 }
 
-/* BOTÕES GLOBAIS */
+/* --- BOTÕES GLOBAIS --- */
 .btn {
     padding: 10px 20px;
     border-radius: 8px;
@@ -148,7 +148,7 @@ a {
 }
 .btn-gradient-dark:hover { background-position: 100% 0; }
 
-/* SEÇÕES (HERO, FEATURES, DEVS) */
+/* --- SEÇÕES (HERO, FEATURES, DEVS) --- */
 .hero, .features, .plans, .devs {
     padding: 80px 0;
 }
